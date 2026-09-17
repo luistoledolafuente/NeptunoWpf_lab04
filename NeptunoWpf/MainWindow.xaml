@@ -1,0 +1,50 @@
+﻿<Window x:Class="NeptunoWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Neptuno - ADO.NET" Height="600" Width="950">
+
+    <Grid Margin="15">
+        <TabControl>
+            <TabItem Header="Productos">
+                <DataGrid x:Name="dgProductos"
+                          Margin="10"
+                          AutoGenerateColumns="True"
+                          IsReadOnly="True" />
+            </TabItem>
+
+            <TabItem Header="Categorías">
+                <DataGrid x:Name="dgCategorias"
+                          Margin="10"
+                          AutoGenerateColumns="True"
+                          IsReadOnly="True" />
+            </TabItem>
+
+            <TabItem Header="Buscar proveedores">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Contacto:" VerticalAlignment="Center"/>
+                        <TextBox x:Name="txtContacto" Width="180" Margin="8,0,18,0"/>
+
+                        <TextBlock Text="Ciudad:" VerticalAlignment="Center"/>
+                        <TextBox x:Name="txtCiudad" Width="180" Margin="8,0,18,0"/>
+
+                        <Button Content="Buscar"
+                                Width="100"
+                                Click="BuscarProveedores_Click"/>
+                    </StackPanel>
+
+                    <DataGrid x:Name="dgProveedores"
+                              Grid.Row="1"
+                              Margin="0,15,0,0"
+                              AutoGenerateColumns="True"
+                              IsReadOnly="True"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
